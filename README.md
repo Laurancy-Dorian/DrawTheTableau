@@ -6,6 +6,7 @@ Les libraries utilisées pour ce projet sont :
 -Numpy 
 -Groovepy
 -Keras 
+-picamera
 
 Le matériel utilisé est : 
 - une caméra 
