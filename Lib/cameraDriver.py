@@ -1,5 +1,6 @@
 from time import *
 from picamera import *
+import numpy as np
 
 """
 Takes a picture from the camera and saves it in the current directory in a jpg format
