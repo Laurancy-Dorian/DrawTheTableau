@@ -5,6 +5,14 @@ import grovepi
 # SIG,NC,VCC,GND
 
 def detection():
+  """
+See with infrared if there is any motion
+
+prereq :	None
+param :		None
+
+  """
+  
   pir_sensor = 8
 
   grovepi.pinMode(pir_sensor,"INPUT")
