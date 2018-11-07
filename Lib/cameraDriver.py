@@ -1,6 +1,7 @@
 from time import *
 from picamera import *
 import numpy as np
+from drawTheTableauLib import *
 
 """
 Takes a picture from the camera and saves it in the current directory in a jpg format
@@ -32,3 +33,21 @@ def takeVid(filename ='video', time = 60, resX = 1024, resY = 768):
 	camera.stop_recording()
 
 
+"""
+Takes a picture from the camera and returns it in a numpy array
+prereq :	resX > 0, resY > 0
+		 	resX <= 2592, resY <= 1944
+param :		Int		resX 		The X resolution of the picture
+			Int 	resY		The Y resolution of the picture
+"""
+def takePicToNumpy(resX = 1024, resY = 768):
+	camera = PiCamera()
+	camera.resolution = (resX, resY)
+	camera.framerate = 24
+	xRounded = roundToNearestMultiple (resX, 16)
+	yRounded = roundToNearestMultiple (resY, 32)
+	output = np.empty((xRounded * yRounded * 3,), dtype=np.uint8)
+	camera.capture(output, 'rgb')
+	output = output.reshape((xRounded, yRounded, 3))
+	output = output[:resX, :resY, :]
+	return output
