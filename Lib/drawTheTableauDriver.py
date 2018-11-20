@@ -11,7 +11,7 @@ def takeAutomatedPictures () :
 	mvt = False
 
 	# Scan the movements. Does nothing while there is movements
-	while (!mvt_detected or mvt):
+	while (not(mvt_detected) or mvt):
 		mvt = detection()
 		if (mvt) :
 			mvt_detected = True
