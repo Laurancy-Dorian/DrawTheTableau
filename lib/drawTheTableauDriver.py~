@@ -22,7 +22,6 @@ def takeAutomatedPictures () :
 
 	file_name = 'img' + datetime.datetime.now().strftime("%Y_%m_%d-%H%M%S") 
 	takePic(file_name)
-	return 1
 
 
 
@@ -35,7 +34,6 @@ param : String 	path 				The path of the picture
 		String 	path_destination	The path in the device where to put the file	
 """
 def sendPicture (path, ip_adress, path_destination)
-
 
 """
 Scan the 
