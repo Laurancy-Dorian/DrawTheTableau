@@ -23,6 +23,13 @@ Initialise le LCD
 def initLCD() :
 	bus.write_byte_data(DISPLAY_RGB_ADDR,0x00,0x00)
 	bus.write_byte_data(DISPLAY_RGB_ADDR,0x01,0x00)
+	bus.write_byte_data(DISPLAY_RGB_ADDR,0x08,0xAA)
+	
+	bus.write_byte_data(DISPLAY_TEXT_ADDR,0x80,0x01)
+	bus.write_byte_data(DISPLAY_TEXT_ADDR,0x80,0x0F)
+	bus.write_byte_data(DISPLAY_TEXT_ADDR,0x80,0x38)
+	
+	setRGB(255,255,255)
 
 """
 Change la couleur de l'ecran
@@ -36,7 +43,7 @@ def setRGB(rouge,vert,bleu):
 	bus.write_byte_data(DISPLAY_RGB_ADDR,0x04,rouge)
 	bus.write_byte_data(DISPLAY_RGB_ADDR,0x03,vert)
 	bus.write_byte_data(DISPLAY_RGB_ADDR,0x02,bleu)
-	print("Couleur ecran changee")
+	
 
 """
 Envoie  a l'ecran une commande concerant l'affichage des caracteres
@@ -68,7 +75,7 @@ def setText(texte):
 			c = texte[i]
 		bus.write_byte_data(DISPLAY_TEXT_ADDR,0x40,ord(c))
 
-	print ("texte ecrit")
+	
 
 """
 Change la couleur du fond du LCD
@@ -76,3 +83,5 @@ param : couleur (String) 	Le nom de la couleur
 """
 def setColor(couleur):
 	print "couleur changee"
+
+initLCD()
