@@ -40,6 +40,7 @@ def takeAutomatedPictures () :
 	takePic(file_name)
 
 	printDTT ("Photo prise");
+
 	return 1
 
 
@@ -64,9 +65,10 @@ if __name__ == "__main__":
 	printDTT ("DEBUT DE LA PRISE AUTO D\'IMAGE")
 
     	takeAutomatedPictures();
+
 	printDTT ("FIN DE LA PRISE AUTO D\'IMAGE")
 	print ("\n")
 
-	continuer = inputDTT ("Voulez-vous continuer la prise auto des images ?")
+	continuer = inputDTT ("Voulez-vous continuer la prise auto des images ?", "Continuer prise auto images ?")
 
-    rep = inputDTT ("Voulez-vous envoyer les images sur une machine distante ?")
+    rep = inputDTT ("Voulez-vous envoyer les images sur une machine distante ?", "Envoyer sur machine distante ?")
