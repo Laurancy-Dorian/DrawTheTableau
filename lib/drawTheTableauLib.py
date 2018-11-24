@@ -33,7 +33,7 @@ Parameters :
 	- msgcourt 	La version courte du message pour l'affichage sur le lcd(< 32 caracteres)
 """
 def printDTT(msg, msgcourt = ""):
-	if (msgcourt = "") :
+	if (msgcourt == "") :
 		msgcourt = msg
 	print (msg)
 	lcd.setText(msg)
