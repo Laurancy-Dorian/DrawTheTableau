@@ -10,18 +10,26 @@ def takeAutomatedPictures () :
 	mvt_detected = False
 	mvt = False
 
+
 	# Scan the movements. Does nothing while there is movements
 	while (not(mvt_detected) or mvt):
+		time.sleep(0.5)
 		mvt = detection()
 		if (mvt) :
 			mvt_detected = True
+			print ("Mouvement detecte !")
+		else :
+			print ("Aucun mvt")
 
+	print ("plus de mvt : Photo dans 2 sec")
 	# The while loop ended, this means the user stopped writing in the blackboard. We take a picture
 	
 	time.sleep(2)
 
-	file_name = 'img' + datetime.datetime.now().strftime("%Y_%m_%d-%H%M%S") 
+	file_name = 'img/img' + datetime.datetime.now().strftime("%Y_%m_%d-%H%M%S") 
 	takePic(file_name)
+
+	print ("photo prise");
 	return 1
 
 
@@ -41,7 +49,8 @@ def sendPicture (path, ip_adress, path_destination)
 Scan the 
 """
 if __name__ == "__main__":
-    
+    while True :
+    	takeAutomatedPictures();
 
 
 
