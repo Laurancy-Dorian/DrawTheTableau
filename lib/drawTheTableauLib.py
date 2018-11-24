@@ -1,3 +1,5 @@
+import lcdDriver as lcd 
+
 """
 Round a number up to the nearest multiple of another
 param : Int 	nb 			the number to round up
@@ -13,11 +15,19 @@ Retourne la reponse sous la forme d'un booleen
 Parameters :
 	- msg String 	Le message a afficher
 """
-def inputDTT (msg):
+def inputDTT (msg) :
 	rep = ""
 	while rep == "":
-		rep = str(raw_input (msg + " (Y/N) "))
+		printDTT (msg + " (Y/N) ")
+		rep = str(raw_input (""))
 		if rep != "Y" and rep != "N" :
-			print ("Erreur : Veuillez repondre \'Y\' pour oui et \'N\' pour non")
+			printDTT ("Erreur : Veuillez repondre \'Y\' pour oui et \'N\' pour non")
 			rep = "" 
 	return rep == "Y"
+
+"""
+Affiche un message dans la sortie courante et sur l'ecran lcd
+"""
+def printDTT(msg):
+	print (msg)
+	lcd.setText(msg)
