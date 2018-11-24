@@ -1,4 +1,5 @@
 import lcdDriver as lcd 
+import time as t
 
 """
 Round a number up to the nearest multiple of another
@@ -21,13 +22,20 @@ def inputDTT (msg) :
 		printDTT (msg + " (Y/N) ")
 		rep = str(raw_input (""))
 		if rep != "Y" and rep != "N" :
-			printDTT ("Erreur : Veuillez repondre \'Y\' pour oui et \'N\' pour non")
+			printDTT ("Erreur : Veuillez repondre \'Y\' pour oui et \'N\' pour non", "ERREUR : Entrez Y (oui) ou N (non)")
 			rep = "" 
 	return rep == "Y"
 
 """
 Affiche un message dans la sortie courante et sur l'ecran lcd
+Parameters :
+	- msg 		Le message a afficher
+	- msgcourt 	La version courte du message pour l'affichage sur le lcd(< 32 caracteres)
 """
-def printDTT(msg):
+def printDTT(msg, msgcourt = ""):
+	if (msgcourt = "") :
+		msgcourt = msg
 	print (msg)
 	lcd.setText(msg)
+	t.sleep(0.5)
+	
