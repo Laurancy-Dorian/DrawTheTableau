@@ -84,4 +84,10 @@ param : couleur (String) 	Le nom de la couleur
 def setColor(couleur):
 	print "couleur changee"
 
+def shutDownLCD():
+	textCmd(0x01)	# Clear display
+	textCmd(0x0F)	# Display on, block cursor
+	textCmd(0x38)	# 2 lines
+	setRGB(0,0,0)
+	
 initLCD()
