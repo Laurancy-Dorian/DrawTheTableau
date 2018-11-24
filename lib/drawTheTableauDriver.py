@@ -58,6 +58,7 @@ param : String 	path 				The path of the picture
 
 
 if __name__ == "__main__":
+    printDTT("DrawTheTableau")
     continuer = True
     while continuer :
 
