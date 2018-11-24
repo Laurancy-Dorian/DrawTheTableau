@@ -1,8 +1,9 @@
 from cameraDriver import *
 from motionsensorDriver import *
+from drawTheTableauLib import *
 import datetime as dt
 import time as t
-from drawTheTableauLib import *
+import lcdDriver as lcd
 
 """
 Scan with the motion sensor. while there is movement, nothing happens.
@@ -23,14 +24,14 @@ def takeAutomatedPictures () :
 		if (mvt) :
 			mvt_detected = True
 			nb_verif = 0
-			print ("Mouvement detecte !")
+			printDTT ("Mouvement detecte !")
 		elif mvt_detected :
 			nb_verif = nb_verif +1
-			print ("Aucun mouvement (" + str(nb_verif) + "/3)")
+			printDTT ("Aucun mouvement (" + str(nb_verif) + "/3)")
 		else :
-			print ("Il n'y a pas encore eu de mouvements")	
+			printDTT ("Il n'y a pas encore eu de mouvements")	
 
-	print ("plus de mvt : Photo dans 5 sec")
+	printDTT ("Plus de mvt : Photo dans 5 sec")
 	# The while loop ended, this means the user stopped writing in the blackboard. We take a picture
 	
 	t.sleep(5)
@@ -38,7 +39,7 @@ def takeAutomatedPictures () :
 	file_name = 'img/img' + dt.datetime.now().strftime("%Y_%m_%d-%H%M%S") 
 	takePic(file_name)
 
-	print ("photo prise");
+	printDTT ("Photo prise");
 	return 1
 
 
@@ -59,11 +60,13 @@ if __name__ == "__main__":
     continuer = True
     while continuer :
 
-	print ("\nDEBUT DE LA PRISE AUTO D\'IMAGE")
+	print ("\n")
+	printDTT ("DEBUT DE LA PRISE AUTO D\'IMAGE")
+
     	takeAutomatedPictures();
-	print ("FIN DE LA PRISE AUTO D\'IMAGE\n")
+	printDTT ("FIN DE LA PRISE AUTO D\'IMAGE")
+	print ("\n")
 
 	continuer = inputDTT ("Voulez-vous continuer la prise auto des images ?")
 
     rep = inputDTT ("Voulez-vous envoyer les images sur une machine distante ?")
-
