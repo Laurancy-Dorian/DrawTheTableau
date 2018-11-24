@@ -13,7 +13,7 @@ Retourne la reponse sous la forme d'un booleen
 Parameters :
 	- msg String 	Le message a afficher
 """
-def inputDTT (msg)
+def inputDTT (msg):
 	rep = ""
 	while rep == "":
 		rep = str(raw_input (msg + " (Y/N) "))
