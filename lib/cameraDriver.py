@@ -16,6 +16,7 @@ def takePic (filename ='image', resX = 1024, resY = 768):
 	camera.resolution = (resX, resY)
 	camera.start_preview()
 	camera.capture(filename + '.jpg')
+	camera.close()
 
 """
 Takes a videp from the camera and saves it in the current directory in a h264 format
