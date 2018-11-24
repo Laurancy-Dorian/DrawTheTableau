@@ -16,13 +16,13 @@ Retourne la reponse sous la forme d'un booleen
 Parameters :
 	- msg String 	Le message a afficher
 """
-def inputDTT (msg) :
+def inputDTT (msg, msgcourt = "") :
 	rep = ""
 	while rep == "":
 		printDTT (msg + " (Y/N) ")
 		rep = str(raw_input (""))
 		if rep != "Y" and rep != "N" :
-			printDTT ("Erreur : Veuillez repondre \'Y\' pour oui et \'N\' pour non", "ERREUR : Entrez Y (oui) ou N (non)")
+			printDTT ("Erreur : Veuillez repondre \'Y\' pour oui et \'N\' pour non", "ERREUR : Entrez Y (oui) ou N (non)", msgcourt)
 			rep = "" 
 	return rep == "Y"
 
