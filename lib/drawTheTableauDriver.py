@@ -72,3 +72,4 @@ if __name__ == "__main__":
 	continuer = inputDTT ("Voulez-vous continuer la prise auto des images ?", "Continuer prise auto images ?")
 
     rep = inputDTT ("Voulez-vous envoyer les images sur une machine distante ?", "Envoyer sur machine distante ?")
+    lcd.shutDownLCD()
