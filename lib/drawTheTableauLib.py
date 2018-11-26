@@ -37,5 +37,5 @@ def printDTT(msg, msgcourt = ""):
 		msgcourt = msg
 	print (msg)
 	lcd.setText(msg)
-	t.sleep(0.5)
+	t.sleep(0.1)
 	

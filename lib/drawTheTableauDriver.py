@@ -10,25 +10,28 @@ Scan with the motion sensor. while there is movement, nothing happens.
 When movements stop, then it takes a picture with the camera.
 """
 def takeAutomatedPictures () :
-	mvt_detected = False
+	mvt_detected = 0
 	mvt = False
 	nb_verif = 0
 
 
 	# Scan the movements. Does nothing while there is movements
 	# Comme le capteur peut avoir des rates, nous verifions 3 fois d'affilees s'il n'y a pas de mouvements
-	while (not(mvt_detected) or mvt or nb_verif < 3):
-		t.sleep(2)
+	while (mvt_detected < 3 or mvt or nb_verif < 3):
+		t.sleep(1)
 		mvt = detection()
 
 		if (mvt) :
-			mvt_detected = True
+			if mvt_detected < 3 :
+				mvt_detected += 1
 			nb_verif = 0
-			printDTT ("Mouvement detecte !")
-		elif mvt_detected :
+			printDTT ("Mouvement detecte ! (" + str(mvt_detected) + "/3)")
+		elif mvt_detected > 3 :
 			nb_verif = nb_verif +1
 			printDTT ("Aucun mouvement (" + str(nb_verif) + "/3)")
 		else :
+			if mvt_detected <3 :
+				mvt_detected = 0
 			printDTT ("Il n'y a pas encore eu de mouvements")	
 
 	printDTT ("Plus de mvt : Photo dans 5 sec")
