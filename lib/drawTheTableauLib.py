@@ -19,12 +19,12 @@ Parameters :
 def inputDTT (msg, msgcourt = "") :
 	rep = ""
 	while rep == "":
-		printDTT (msg + " (Y/N) ")
+		printDTT (msg + " (Y/N) ", msgcourt)
 		rep = str(raw_input (""))
-		if rep != "Y" and rep != "N" :
-			printDTT ("Erreur : Veuillez repondre \'Y\' pour oui et \'N\' pour non", "ERREUR : Entrez Y (oui) ou N (non)", msgcourt)
+		if rep != "Y" and rep != "y" and rep != "N" and rep != "n" :
+			printDTT ("Erreur : Veuillez repondre \'Y\' pour oui et \'N\' pour non", "ERREUR : Entrez Y (oui) ou N (non)")
 			rep = "" 
-	return rep == "Y"
+	return rep == "Y" or rep == "y"
 
 """
 Affiche un message dans la sortie courante et sur l'ecran lcd
