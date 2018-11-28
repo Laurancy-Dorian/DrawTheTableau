@@ -8,14 +8,16 @@ import time as t
 
 
 if __name__ == "__main__":
-    dtlib.printDTT("DrawTheTableau\n")
+    dtlib.printDTT("DrawTheTableau")
+    print ("\n")
 	
     continuer = dtlib.inputDTT ("Voulez-vous prendre une image instantanee ?", "Prendre image ?")
 
     while continuer : 
 	dtlib.printDTT("Prise de photo")
     	dtdriver.takeAndSavePic()
-	dtlib.printDTT("Photo prise !\n")
+	dtlib.printDTT("Photo prise !")
+	print ("\n")
 	continuer = dtlib.inputDTT ("Voulez-vous prendre une autre image instantanee ?", "Prendre image ?")
 	
 	
@@ -25,7 +27,8 @@ if __name__ == "__main__":
 
         dtlib.printDTT ("DEBUT DE LA PRISE AUTO D\'IMAGE")
         dtdriver.takeAutomatedPictures();
-        dtlib.printDTT ("FIN DE LA PRISE AUTO D\'IMAGE\n")
+        dtlib.printDTT ("FIN DE LA PRISE AUTO D\'IMAGE")
+	print ("\n")
 
         continuer = dtlib.inputDTT ("Voulez-vous continuer la prise auto des images ?", "Continuer prise auto img ?")
 
