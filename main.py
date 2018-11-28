@@ -13,8 +13,7 @@ if __name__ == "__main__":
     continuer = dtlib.inputDTT ("Voulez-vous prendre une image instantanee ?", "Prendre image ?")
 
     while continuer : 
-	dtlib.printDTT("Photo dans 5 sec")
-	t.sleep(5)
+	dtlib.printDTT("Prise de photo")
     	dtdriver.takeAndSavePic()
 	dtlib.printDTT("Photo prise !")
 	continuer = dtlib.inputDTT ("Voulez-vous prendre une autre image instantanee ?", "Prendre image ?")
