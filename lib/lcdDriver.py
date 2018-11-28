@@ -95,5 +95,4 @@ def shutDownLCD():
 	textCmd(0x0F)	# Display on, block cursor
 	textCmd(0x38)	# 2 lines
 	setRGB(0,0,0)
-	
-initLCD()
+
