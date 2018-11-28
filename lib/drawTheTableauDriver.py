@@ -3,7 +3,6 @@ from motionsensorDriver import *
 from drawTheTableauLib import *
 import datetime as dt
 import time as t
-import lcdDriver as lcd
 
 """
 Scan with the motion sensor. while there is movement, nothing happens.
@@ -39,13 +38,14 @@ def takeAutomatedPictures () :
 	
 	t.sleep(5)
 
-	file_name = 'img/img' + dt.datetime.now().strftime("%Y_%m_%d-%H%M%S") 
-	takePic(file_name)
-
+	takeAndSavePic()
 	printDTT ("Photo prise");
 
 	return 1
 
+def takeAndSavePic() :
+	file_name = 'img/img' + dt.datetime.now().strftime("%Y_%m_%d-%H%M%S") 
+	takePic(file_name)
 
 
 
@@ -59,21 +59,3 @@ param : String 	path 				The path of the picture
 #def sendPicture (path, ip_adress, path_destination)
  
 
-
-if __name__ == "__main__":
-    printDTT("DrawTheTableau")
-    continuer = True
-    while continuer :
-
-	print ("\n")
-	printDTT ("DEBUT DE LA PRISE AUTO D\'IMAGE")
-
-    	takeAutomatedPictures();
-
-	printDTT ("FIN DE LA PRISE AUTO D\'IMAGE")
-	print ("\n")
-
-	continuer = inputDTT ("Voulez-vous continuer la prise auto des images ?", "Continuer prise auto images ?")
-
-    rep = inputDTT ("Voulez-vous envoyer les images sur une machine distante ?", "Envoyer sur machine distante ?")
-    lcd.shutDownLCD()
