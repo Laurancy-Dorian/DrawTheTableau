@@ -5,6 +5,7 @@ Librairie de gestion d'un ecran LCD
 
 import smbus
 import time
+import os
 
 # write_byte_data(Adresse, registre de commande, Valeur)
 # Ex : write_byte_data(0x3e, 0x80, 0x01) ==> Clear display
@@ -28,6 +29,11 @@ def initLCD() :
 	bus.write_byte_data(DISPLAY_TEXT_ADDR,0x80,0x01)
 	bus.write_byte_data(DISPLAY_TEXT_ADDR,0x80,0x0F)
 	bus.write_byte_data(DISPLAY_TEXT_ADDR,0x80,0x38)
+	
+	# Ne marche pas - Execution par des commandes bash :
+	os.system("i2cset -y 1 " + str(DISPLAY_TEXT_ADDR) + " 0x80 0x01")
+	os.system("i2cset -y 1 " + str(DISPLAY_TEXT_ADDR) + " 0x80 0x0F")
+	os.system("i2cset -y 1 " + str(DISPLAY_TEXT_ADDR) + " 0x80 0x38")
 	
 	setRGB(255,255,255)
 
