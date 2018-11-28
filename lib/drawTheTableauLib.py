@@ -19,7 +19,7 @@ Parameters :
 def inputDTT (msg, msgcourt = "") :
 	rep = ""
 	while rep == "":
-		printDTT (msg + " (Y/N) ", msgcourt)
+		printDTT (msg + " (Y/N) ", msgcourt + ":Y/N")
 		rep = str(raw_input (""))
 		if rep != "Y" and rep != "y" and rep != "N" and rep != "n" :
 			printDTT ("Erreur : Veuillez repondre \'Y\' pour oui et \'N\' pour non", "ERREUR : Entrez Y (oui) ou N (non)")
@@ -36,6 +36,6 @@ def printDTT(msg, msgcourt = ""):
 	if (msgcourt == "") :
 		msgcourt = msg
 	print (msg)
-	lcd.setText(msg)
+	lcd.setText(msgcourt)
 	t.sleep(0.1)
 	
