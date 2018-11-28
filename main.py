@@ -19,7 +19,7 @@ if __name__ == "__main__":
 	continuer = dtlib.inputDTT ("Voulez-vous prendre une autre image instantanee ?", "Prendre image ?")
 	
 
-    continuer = dtlib.inputDTT ("Voulez-vous effectuer une prise auto des images ?", "Continuer prise auto img ?")
+    continuer = dtlib.inputDTT ("Voulez-vous effectuer une prise auto des images ?", "Prise auto img ?")
     while continuer :
 
         dtlib.printDTT ("DEBUT DE LA PRISE AUTO D\'IMAGE")
