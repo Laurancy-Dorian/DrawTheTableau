@@ -8,6 +8,7 @@ import time as t
 
 
 if __name__ == "__main__":
+    lcd.initLCD()
     dtlib.printDTT("DrawTheTableau")
     print ("\n")
 	
