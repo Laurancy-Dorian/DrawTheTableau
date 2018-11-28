@@ -10,14 +10,14 @@ import time as t
 if __name__ == "__main__":
     dtlib.printDTT("DrawTheTableau")
 	
-    continuer = dtlib.inputDTT ("Voulez-vous prendre une image instantanée ?", "Prendre image ?")
+    continuer = dtlib.inputDTT ("Voulez-vous prendre une image instantanee ?", "Prendre image ?")
 
     while continuer : 
 	dtlib.printDTT("Photo dans 5 sec")
 	t.sleep(5)
     	takeAndSavePic()
 	dtlib.printDTT("Photo prise !")
-	continuer = dtlib.inputDTT ("Voulez-vous prendre une autre image instantanée ?", "Prendre image ?")
+	continuer = dtlib.inputDTT ("Voulez-vous prendre une autre image instantanee ?", "Prendre image ?")
 	
 
     continuer = dtlib.inputDTT ("Voulez-vous effectuer une prise auto des images ?", "Continuer prise auto img ?")
