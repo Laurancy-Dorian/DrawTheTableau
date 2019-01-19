@@ -1,75 +1,42 @@
-#!/usr/bin/python
 
-import logging
-import logging.handlers
-import argparse
-import sys
-import os
-import time
+# file: rfcomm-server.py
+# auth: Albert Huang <albert@csail.mit.edu>
+# desc: simple demonstration of a server application that uses RFCOMM sockets
+#
+# $Id: rfcomm-server.py 518 2007-08-10 07:20:07Z albert $
+
 from bluetooth import *
 
+server_sock=BluetoothSocket( RFCOMM )
+server_sock.bind(("",PORT_ANY))
+server_sock.listen(1)
 
-# Main loop
-def main():
+port = server_sock.getsockname()[1]
 
+uuid = "94f39d29-7d6d-437d-973b-fba39e49d4ee"
 
-    # Make device visible
-    os.system("hciconfig hci0 piscan")
+advertise_service( server_sock, "SampleServer",
+                   service_id = uuid,
+                   service_classes = [ uuid, SERIAL_PORT_CLASS ],
+                   profiles = [ SERIAL_PORT_PROFILE ], 
+#                   protocols = [ OBEX_UUID ] 
+                    )
+                   
+print("Waiting for connection on RFCOMM channel %d" % port)
 
-    # Create a new server socket using RFCOMM protocol
-    server_sock = BluetoothSocket(RFCOMM)
-    # Bind to any port
-    server_sock.bind(("", PORT_ANY))
-    # Start listening
-    server_sock.listen(1)
+client_sock, client_info = server_sock.accept()
+print("Accepted connection from ", client_info)
 
-    # Get the port the server socket is listening
-    port = server_sock.getsockname()[1]
-
-    # Main Bluetooth server loop
+try:
     while True:
+        data = client_sock.recv(1024)
+        if len(data) == 0: break
+        print("received [%s]" % data)
+except IOError:
+    pass
 
-        print "Waiting for connection on RFCOMM channel %d" % port
+print("disconnected")
 
-        try:
-            client_sock = None
-
-            # This will block until we get a new connection
-            client_sock, client_info = server_sock.accept()
-            print "Accepted connection from ", client_info
-
-            # Read the data sent by the client
-            data = client_sock.recv(1024)
-            if len(data) == 0:
-                break
-
-            print "Received [%s]" % data
-
-            # Handle the request
-            if data == "getop":
-                response = "op:%s" % ",".join(operations)
-            elif data == "ping":
-                response = "msg:Pong"
-            elif data == "example":
-                response = "msg:This is an example"
-            # Insert more here
-            else:
-                response = "msg:Not supported"
-
-            client_sock.send(response)
-            print "Sent back [%s]" % response
-
-        except IOError:
-            pass
-
-        except KeyboardInterrupt:
-
-            if client_sock is not None:
-                client_sock.close()
-
-            server_sock.close()
-
-            print "Server going down"
-            break
-
-main()
+client_sock.close()
+server_sock.close()
+print("all done")
