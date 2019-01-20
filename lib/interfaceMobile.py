@@ -12,7 +12,7 @@ def sendMessage(msg = "") :
   
 
 def attenteReponse(msg = "Reponse : ", repAttendues=["oui", "non"]) :
-    reponse: String = ""
+    reponse = ""
     
     # On envoie le message
     sendMessage(msg)
