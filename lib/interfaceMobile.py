@@ -23,18 +23,18 @@ def attenteReponse(msg = "Reponse : ", repAttendues=["oui", "non"]) :
         reponse = rcvMessage()
 
         # Verifie si la reponse est correcte
-        rep_correcte = FALSE
+        rep_correcte = False
 
         if len(repAttendues) != 0 :
           for rep_attendue in repAttendues :
             if reponse.lower() == rep_attendue.lower() :
-              rep_correcte = TRUE
+              rep_correcte = True
               reponse = rep_attendue
             else :
-              rep_correcte = TRUE
+              rep_correcte = True
             
       # Si la reponse n'est pas correcte, on affiche un message et on reinitialise reponse
-        if rep_correcte is FALSE :
+        if rep_correcte is False :
           reponse = ""
 
     return reponse
