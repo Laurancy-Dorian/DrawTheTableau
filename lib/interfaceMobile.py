@@ -55,3 +55,7 @@ def attenteReponse(msg = "Reponse : ", repAttendues=["oui", "non"]) :
   
 def boolattenteReponse(msg = "Reponse : ", repAttendues=["oui", "non"]) :
     return attenteReponse(msg, repAttendues) == repAttendues[0]
+
+def shutdown() :
+    rcvMessage()
+    sendMessage("Pour commencer, allumez la Raspberry")
