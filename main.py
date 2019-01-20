@@ -41,5 +41,6 @@ if __name__ == "__main__":
     #rep = dtlib.inputDTT ("Voulez-vous envoyer les images sur une machine distante ?", "Envoyer sur machine distante ?")
     #TODO
     lcd.shutDownLCD()
+    im.shutdown()
 
 
