@@ -1,3 +1,4 @@
+import re
 from lib import cameraDriver as cam
 from lib import motionsensorDriver as motion
 from lib import drawTheTableauLib as dtlib
@@ -6,13 +7,24 @@ from lib import lcdDriver as lcd
 from lib import interfaceMobile as im
 import datetime as dt
 import time as t
+import os
+
+def get_ip() :
+    ip = os.popen("ifconfig | grep -o -m1 \"adr:.* \"").read()
+    ip = ip[4:]
+    ip = ip.split(' ', 1)[0]
+    return ip
 
 
 if __name__ == "__main__":
     lcd.initLCD()
     dtlib.printDTT("DrawTheTableau")
     print ("\n")
-	
+
+    #Reccuperation et affichage de l'IP
+    dtlib.printDTT(get_ip())	
+    t.sleep(10)
+
     #continuer = dtlib.inputDTT ("Voulez-vous prendre une image instantanee ?", "Prendre image ?")
     continuer = im.boolattenteReponse ("Voulez-vous prendre une image instantanee ?")
   
