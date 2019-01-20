@@ -34,7 +34,7 @@ def attenteReponse(msg = "Reponse : ", repAttendues=["oui", "non"]) :
               rep_correcte = TRUE
             
       # Si la reponse n'est pas correcte, on affiche un message et on reinitialise reponse
-        if rep_correcte == FALSE :
+        if rep_correcte is FALSE :
           reponse = ""
 
     return reponse
