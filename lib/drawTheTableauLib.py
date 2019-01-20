@@ -1,5 +1,6 @@
 import lcdDriver as lcd 
 import time as t
+import interfaceMobile as im
 
 """
 Round a number up to the nearest multiple of another
@@ -37,5 +38,6 @@ def printDTT(msg, msgcourt = ""):
 		msgcourt = msg
 	print (msg)
 	lcd.setText(msgcourt)
+	im.sendMessage(msg)
 	t.sleep(0.1)
 	
