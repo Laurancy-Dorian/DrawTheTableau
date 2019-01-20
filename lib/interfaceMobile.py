@@ -53,3 +53,5 @@ def attenteReponse(msg = "Reponse : ", repAttendues=["oui", "non"]) :
 
     return reponse
   
+def boolattenteReponse(msg = "Reponse : ", repAttendues=["oui", "non"]) :
+    return attenteReponse(msg, repAttendues) == repAttendues[0]
