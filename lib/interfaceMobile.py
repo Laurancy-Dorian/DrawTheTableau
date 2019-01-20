@@ -1,12 +1,12 @@
 def rcvMessage() :
-  fichier = open("/var/www/html/DrawTheTableau/instruction", "r")
+  fichier = open("/home/dodo/DrawTheTableau/appMobile/instruction", "r")
   msg =  fichier.read()
   fichier.close()
   return msg
   
   
 def sendMessage(msg = "") :
-  fichier = open("/var/www/html/DrawTheTableau/info", "w")
+  fichier = open("/home/dodo/DrawTheTableau/appMobile/info", "w")
   fichier.write("msg")
   fichier.close()
   
