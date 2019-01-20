@@ -1,5 +1,5 @@
 import time
-from drawTheTableauLib import *
+import drawTheTableauLib as dt
 
 def rcvMessage() :
   path = "/home/dodo/DrawTheTableau/appMobile/instruction"
@@ -26,7 +26,7 @@ def attenteReponse(msg = "Reponse : ", repAttendues=["oui", "non"]) :
     reponse = ""
     
     # On envoie le message
-    printDTT(msg)
+    dt.printDTT(msg)
     
     # On recommence la boucle jusqu'a obtenir une reponse satisfaisante
     while reponse == "" :
