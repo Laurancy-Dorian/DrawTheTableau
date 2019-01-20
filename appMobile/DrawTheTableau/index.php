@@ -6,10 +6,10 @@
 */
 
 // Fichier d'ecriture d'instruction
-$in_file = 'instruction.txt';
+$in_file = 'instruction';
 
 // Fichier de lecture
-$out_file = 'instruction.txt';
+$out_file = 'instruction';
 
 // Si une information a ete envoye depuis l'application, les donnees sont enregistrees dans le fichier
 if ($_POST) {
