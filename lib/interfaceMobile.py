@@ -52,4 +52,3 @@ def attenteReponse(msg = "Reponse : ", repAttendues=["oui", "non"]) :
 
     return reponse
   
-attenteReponse()
