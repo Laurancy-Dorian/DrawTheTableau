@@ -25,7 +25,7 @@ def attenteReponse(msg = "Reponse : ", repAttendues=["oui", "non"]) :
         # Verifie si la reponse est correcte
         rep_correcte = false
 
-        if (len(repAttendues) != 0 :
+        if len(repAttendues) != 0 :
           for rep_attendue in repAttendues 
             if reponse.lower() == rep_attendue.lower() :
               rep_correcte = true
