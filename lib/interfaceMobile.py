@@ -7,7 +7,7 @@ def rcvMessage() :
   
 def sendMessage(msg = "") :
   fichier = open("/home/dodo/DrawTheTableau/appMobile/info", "w")
-  fichier.write("msg")
+  fichier.write(msg)
   fichier.close()
   
 
